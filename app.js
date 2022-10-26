@@ -1,53 +1,53 @@
 // task1
 
-let num = [2, 3, 8, 1, 0];
-let c;
+const arr = [2, 3, 8, 1, 0, 5, 3, 6, 8, 4, 1,];
 
-function result(arr) {
+function sortNumbers(arr) {
+    let result;
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length; j++) {
             if (arr[j] > arr[j + 1]) {
-                c = arr[j];
+                result = arr[j];
                 arr[j] = arr[j + 1];
-                arr[j + 1] = c;
+                arr[j + 1] = result;
             }
         }
     }
     return arr;
 }
 
-console.log(result(num));
+console.log(sortNumbers(arr));
 
 // task 2
 
-const nums = [10, 20, 10, 30, 30, 30, 30, 20, 10];
+const arr2 = [10, 20, 10, 30, 30, 30, 30, 20, 10];
 
-function res() {
-    let obj = {}
+function removeDuplicates(arr) {
+    const obj = {}
 
-    for (let value of nums) {
+    for (let value of arr) {
         obj[value] = 1;
     }
     return Object.keys(obj);
 }
 
-console.log(res(nums));
+console.log(removeDuplicates(arr2));
 
 // // task3
 
-const num1 = [1, 2, 3, 4, 6, 60, 60, 60,];
-const num2 = [60, 60, 60, 60, 7, 8, 9, 5, 11, 12, 13, 45, 6, 1];
+const array1 = [1, 2, 3, 4, 6, 60, 60, 60,];
+const array2 = [60, 60, 60, 60, 7, 8, 9, 5, 11, 12, 13, 45, 6, 1];
 
-function res2(array1, array2) {
-    let result = []
-    for (let k = 0; k < array1.length; k++) {
-        if (array2.includes(array1[k])) {
-            if (!(result.includes(array1[k]))) {
-                result.push(array1[k]);
+function numbersInBothArrays(arr1, arr2) {
+    const result = []
+    for (let k = 0; k < arr1.length; k++) {
+        if (arr2.includes(arr1[k])) {
+            if (!(result.includes(arr1[k]))) {
+                result.push(arr1[k]);
             }
         }
     }
     return result
 }
 
-console.log(res2(num1, num2));
+console.log(numbersInBothArrays(array1, array2));
