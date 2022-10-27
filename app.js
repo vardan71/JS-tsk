@@ -4,13 +4,12 @@ const arr = [2, 3, 8, 1, 0, 5, 3, 6, 8, 4, 1,];
 
 function sortNumbers(arr) {
     let result;
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            if (arr[j] > arr[j + 1]) {
-                result = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = result;
-            }
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+            result = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = result;
+            i = -1;
         }
     }
     return arr;
