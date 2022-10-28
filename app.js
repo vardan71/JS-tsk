@@ -3,18 +3,20 @@
 const arr = [2, 3, 8, 1, 0, 5, 3, 6, 8, 4, 1,];
 
 function sortNumbers(arr) {
-    let result;
-    for (let i = 0; i < arr.length - 1; i++) {
-        if (arr[i] > arr[i + 1]) {
-            result = arr[i];
-            arr[i] = arr[i + 1];
-            arr[i + 1] = result;
-            i = -1;
-        }
+    let done = false
+    while (!done) {
+        done = true
+        arr.forEach((num, index) => {
+            if (arr[index] > arr[index + 1]) {
+                num = arr[index];
+                arr[index] = arr[index + 1];
+                arr[index + 1] = num;
+                done = false
+            } else return arr
+        })
     }
-    return arr;
+    return arr
 }
-
 console.log(sortNumbers(arr));
 
 // task 2
