@@ -1,22 +1,21 @@
 // task1
 
-const arr = [2, 3, 8, 1, 0, 5, 3, 6, 8, 4, 1,];
+const arr = [2, 3, 7, 1, 0, 5, 3, 6, 8, 4, 1,];
 
 function sortNumbers(arr) {
-    let done = false
-    while (!done) {
-        done = true
-        arr.forEach((num, index) => {
-            if (arr[index] > arr[index + 1]) {
-                num = arr[index];
-                arr[index] = arr[index + 1];
-                arr[index + 1] = num;
-                done = false
-            } else return arr
-        })
+    let result;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                result = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = result;
+            }
+        }
     }
-    return arr
+    return arr;
 }
+
 console.log(sortNumbers(arr));
 
 // task 2
