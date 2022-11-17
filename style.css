@@ -1,0 +1,13 @@
+#btns {
+    margin: 3px;
+}
+.crateDiv {
+    border: "2px solid black";
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    text-align: center;
+}
+#mainDiv {
+    display: flex;
+}
