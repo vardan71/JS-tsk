@@ -1,35 +1,37 @@
-let btnDiv = document.querySelector("#btns");
-let body = document.body;
-let btn1 = btnDiv.children[0];
-let btn2 = btnDiv.children[1];
-let div = document.createElement("div");
+let mainDiv = document.querySelector("#mainDiv")
 let toSort = [];
-body.style.display = "flex"
-function randomNumbers(min, max) {
+
+function generateRandomColor() {
+    const maxVal = 0xFFFFFF;
+    let randomNumber = Math.random() * maxVal;
+    randomNumber = Math.floor(randomNumber);
+    randomNumber = randomNumber.toString(16);
+    const randColor = randomNumber.padStart(6, 0);
+    return `#${randColor.toUpperCase()}`;
+}
+function generateRandomNumbers(min, max) {
     return Math.floor(Math.random() * (max - min));
 }
 
-btn1.addEventListener("click", function addDIv() {
-
-    let random = randomNumbers(0, 100);
+function addDIv() {
+    const randomObj = {
+        id: generateRandomNumbers('0', '100'),
+        color: generateRandomColor()
+    }
     let div = document.createElement("div");
-    toSort.push(random);
+    console.log(randomObj);
+    toSort.push(randomObj.id);
     div.setAttribute('id', toSort.length);
+    div.classList.add('crateDiv');
+    div.style.background = randomObj.color;
+    div.append(randomObj.id);
+    mainDiv.append(div);
+};
 
-    div.style.border = "2px solid black";
-    div.style.width = "30px";
-    div.style.height = "30px";
-    div.style.margin = "5px";
-    div.style.textAlign = "center";
-
-    div.append(random);
-    body.append(div);
-});
-
-btn2.addEventListener("click", function sortDiv() {
+function sortDiv() {
     toSort.sort((a, b) => a - b);
     for (let i = 0; i < toSort.length; i++) {
         let div = document.getElementById((i + 1));
         div.textContent = toSort[i];
     };
-});
+};
